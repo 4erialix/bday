@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6f1933">
+  <title>A Special Message For You</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="#message">Happy birthday, Beans!</a>
+      <a class="nav-link" href="#message">Message</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="message-section" id="message" aria-labelledby="message-title">
+      <div class="message-heading">
+        <p class="eyebrow">A little birthday keepsake</p>
+        <h1 id="message-title">A Special Message For You</h1>
+      </div>
+
+      <div class="card-stage">
+        <div class="birthday-card" id="birthdayCard">
+          <div class="card-interior" aria-hidden="true">
+            <div class="letter-paper">
+              <p class="letter-kicker">With all my fondest wishes</p>
+              <div class="letter-content" id="letterContent"></div>
+            </div>
+            <div class="inner-flourish" aria-hidden="true">&#10084;</div>
+          </div>
+
+          <button class="card-cover" id="cardToggle" type="button" aria-expanded="false" aria-controls="letterContent">
+            <span class="cover-shine" aria-hidden="true"></span>
+            <span class="cover-content">
+              <span class="seal" aria-hidden="true">&#10084;</span>
+              <span class="cover-title">A Special<br>Message For You</span>
+              <span class="cover-rule" aria-hidden="true"></span>
+              <span class="cover-instruction" id="cardInstruction">Click to open <span aria-hidden="true">&#128140;</span></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

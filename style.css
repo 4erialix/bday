@@ -1,0 +1,331 @@
+:root {
+  --burgundy: #701b35;
+  --burgundy-deep: #421223;
+  --blush: #e8aeb8;
+  --blush-light: #f8dfe2;
+  --cream: #fff8ed;
+  --white: #fffdf9;
+  --gold: #c7964b;
+  --gold-light: #e9c989;
+  --ink: #391c26;
+  --shadow: 0 1.5rem 3.5rem rgba(66, 18, 35, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.9) 0 0.2rem, transparent 0.25rem),
+    radial-gradient(circle at 84% 65%, rgba(199, 150, 75, 0.16) 0 0.25rem, transparent 0.3rem),
+    linear-gradient(135deg, var(--blush-light), var(--cream) 49%, #f2c7cc);
+  background-size: 9rem 9rem, 12rem 12rem, auto;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.site-header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 0.75rem clamp(1rem, 4vw, 4rem);
+  background: rgba(66, 18, 35, 0.94);
+  box-shadow: 0 0.25rem 1rem rgba(66, 18, 35, 0.18);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 74rem;
+  margin: 0 auto;
+}
+
+.brand,
+.nav-link {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.brand {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  letter-spacing: 0.04em;
+}
+
+.nav-link {
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid var(--gold-light);
+  font-size: 0.9rem;
+}
+
+.message-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: clamp(6rem, 12vh, 8rem) 1rem clamp(3rem, 8vh, 6rem);
+  overflow: hidden;
+}
+
+.message-heading {
+  position: relative;
+  z-index: 1;
+  margin-bottom: clamp(1.25rem, 4vh, 2.5rem);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--burgundy);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--burgundy-deep);
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.card-stage {
+  display: grid;
+  width: min(100%, 64rem);
+  place-items: center;
+  perspective: 1400px;
+}
+
+.birthday-card {
+  position: relative;
+  display: grid;
+  width: min(92vw, 54rem);
+  min-height: clamp(25rem, 55vh, 38rem);
+  isolation: isolate;
+  filter: drop-shadow(var(--shadow));
+}
+
+.card-interior,
+.card-cover {
+  grid-area: 1 / 1;
+  min-width: 0;
+  border: 0;
+  border-radius: 0.35rem;
+}
+
+.card-interior {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  width: 100%;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  background: var(--cream);
+  border: 1px solid rgba(199, 150, 75, 0.7);
+  box-shadow: inset 0 0 0 0.45rem rgba(255, 253, 249, 0.7), inset 0 0 0 0.55rem rgba(199, 150, 75, 0.24);
+  overflow: hidden;
+}
+
+.card-interior::before {
+  position: absolute;
+  inset: 1rem;
+  z-index: -1;
+  border: 1px solid rgba(199, 150, 75, 0.35);
+  content: "";
+  pointer-events: none;
+}
+
+.letter-paper {
+  min-width: 0;
+  padding: clamp(0.8rem, 2vw, 1.5rem);
+  background: rgba(255, 253, 249, 0.88);
+  border-left: 0.2rem solid var(--blush);
+}
+
+.letter-kicker {
+  margin: 0 0 0.8rem;
+  color: var(--gold);
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+  font-style: italic;
+}
+
+.letter-content {
+  max-height: clamp(19rem, 47vh, 31rem);
+  padding-right: 0.7rem;
+  overflow-y: auto;
+  scrollbar-color: var(--blush) transparent;
+  scrollbar-width: thin;
+}
+
+.letter-content p {
+  margin: 0 0 1rem;
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  line-height: 1.65;
+}
+
+.letter-content .letter-greeting,
+.letter-content .letter-signoff {
+  color: var(--burgundy);
+  font-weight: 700;
+}
+
+.inner-flourish {
+  align-self: end;
+  color: rgba(112, 27, 53, 0.14);
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 1;
+  text-align: center;
+  transform: rotate(-12deg);
+}
+
+.card-cover {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  min-height: 100%;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  color: var(--cream);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 35%),
+    linear-gradient(145deg, var(--burgundy), var(--burgundy-deep));
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 1.1s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 1.1s ease;
+  box-shadow: inset -0.25rem 0 0 rgba(232, 174, 184, 0.55), inset 0 0 0 0.45rem rgba(255, 253, 249, 0.08);
+}
+
+.card-cover::after {
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(233, 201, 137, 0.65);
+  content: "";
+  pointer-events: none;
+}
+
+.card-cover:focus-visible {
+  outline: 0.25rem solid var(--gold-light);
+  outline-offset: 0.35rem;
+}
+
+.birthday-card.open .card-cover {
+  box-shadow: 0 1rem 2rem rgba(66, 18, 35, 0.16);
+  transform: rotateY(-168deg);
+}
+
+.cover-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.8rem, 2vw, 1.4rem);
+  width: 100%;
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+.cover-title {
+  font-size: clamp(1.65rem, 4vw, 3.4rem);
+  line-height: 1.14;
+  text-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.seal {
+  display: grid;
+  width: clamp(3.75rem, 9vw, 5.5rem);
+  aspect-ratio: 1;
+  place-items: center;
+  color: var(--cream);
+  background: var(--blush);
+  border: 0.2rem solid var(--gold-light);
+  border-radius: 50%;
+  box-shadow: 0 0.45rem 1rem rgba(0, 0, 0, 0.2), inset 0 0 0 0.2rem rgba(112, 27, 53, 0.15);
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.cover-rule {
+  display: block;
+  width: min(11rem, 48%);
+  height: 1px;
+  background: var(--gold-light);
+}
+
+.cover-instruction {
+  color: var(--blush-light);
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: clamp(0.75rem, 1.7vw, 0.95rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cover-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.1) 50%, transparent 65%);
+  background-size: 200% 100%;
+  animation: cover-glow 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cover-glow {
+  0%, 35% { background-position: 200% 0; }
+  65%, 100% { background-position: -50% 0; }
+}
+
+@media (max-width: 42rem) {
+  .birthday-card {
+    width: min(92vw, 32rem);
+    min-height: clamp(29rem, 68svh, 42rem);
+  }
+
+  .card-interior {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: clamp(0.8rem, 4vw, 1.3rem);
+  }
+
+  .inner-flourish {
+    display: none;
+  }
+
+  .letter-content {
+    max-height: clamp(21rem, 52svh, 32rem);
+  }
+
+  .card-cover {
+    transform-origin: center top;
+    transition-duration: 0.95s;
+  }
+
+  .birthday-card.open .card-cover {
+    transform: rotateX(-98deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
